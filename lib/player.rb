@@ -17,13 +17,17 @@ class Player
 		player_board << ships.delete(ship)
 	end
 
-	def turn?
+	def turn? # Player should only be able to attack on his turn
 		@turn
 	end
 
 	def attack(square)
-		# Here we will put a method to attack a square on the opponent's board
-		@turn = false 
+		return "Hit!" if square == occupied
+		return "You missed!" if square == empty
+		@turn = false  # Flips the player's turn attribute so other player can go
+		# I realize that we don't have a way to 'give' the turn to the opponent
 	end
+
+
 
 end

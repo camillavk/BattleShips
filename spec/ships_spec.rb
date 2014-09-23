@@ -27,8 +27,7 @@ describe Ship do
 		end
 
 		it "should lose a hit point when hit" do 
-			ship.hit!
-			expect(ship.hit_points).to eq 4
+			expect{ship.hit!}.to change{ship.hit_points}.by -1
 		end
 
 		it "should know when it has 0 hit points" do
@@ -38,13 +37,12 @@ describe Ship do
 
 		it "should sink when it has 0 hit points" do 
 			5.times { ship.hit! }
-			ship.sink!
-			expect(ship.floating).to be false
+			expect(ship).to be_sunk
 		end
 
-		it "should not sink when it still has hit points" do 
-			4.times { ship.hit! }
-			expect{ ship.sink! }.to raise_error(RuntimeError)
+		it "should not be able to take damage at 0 hit points" do 
+			5.times { ship.hit! }
+			expect{ ship.hit! }.to raise_error(RuntimeError)
 		end
 
 	end

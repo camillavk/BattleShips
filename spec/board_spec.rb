@@ -23,4 +23,9 @@ let (:ship) {double :ship}
 		expect(board.square(0,0)).to eq("occupied")
 	end
 
+
+# 		x.each do |r|
+#   puts r.map { |p| p }.join(" ")
+
+
 end

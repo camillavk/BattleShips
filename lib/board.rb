@@ -11,7 +11,7 @@ attr_accessor :grid
 	end
 
 	def square(x,y)
-		@grid [x][y]
+		@grid[x][y]
 	end
 
 	def set_square(x,y)

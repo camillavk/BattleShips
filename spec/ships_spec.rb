@@ -1,5 +1,5 @@
-require 'ships'
 require 'spec_helper'
+require 'ships'
 
 describe Ship do 
 

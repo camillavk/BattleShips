@@ -22,8 +22,9 @@ class Player
 	end
 
 	def attack(square)
-		return "Hit!" if square == occupied
-		return "You missed!" if square == empty
+		puts "Missile under way"
+		# return "Hit!" if square == occupied
+		# return "You missed!" if square == empty
 		@turn = false  # Flips the player's turn attribute so other player can go
 		# I realize that we don't have a way to 'give' the turn to the opponent
 	end

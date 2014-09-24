@@ -24,7 +24,7 @@ class Ship
 
 	def sink!
 		@floating = false
-		puts "You have sunk my battleship :("
+		# puts "You have sunk my battleship :("
 	end
 
 	def sunk?

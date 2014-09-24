@@ -17,6 +17,10 @@ let (:ship) {double :ship}
 		expect(board.square(0,0)).to eq("A1")
 	end
 
+	it "should be able to acces individual sqaures with their name" do
+		expect(board.cell("A1")).to eq("A1")
+	end
+
 	it "should change if it is occupied" do
 		allow(ship).to receive(:set_square).and_return(:occupied)
 		board.set_square(0,0)

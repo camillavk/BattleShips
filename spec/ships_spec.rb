@@ -3,7 +3,7 @@ require 'ships'
 
 describe Ship do 
 
-	let(:ship) { Ship.new(:size, :name, :damaged, :floating, 5) }
+	let(:ship) { Ship.new(:size, :name, :damaged, :floating, 5, :placed) }
 
 	context "ship sizes" do 
 
@@ -20,6 +20,11 @@ describe Ship do
 	end
 
 	context "ship status" do 
+
+		it "should know when it has been placed" do 
+			ship.place!
+			expect(ship.placed).to be true
+		end
 
 		it "should be able to get hit" do 
 			ship.hit!

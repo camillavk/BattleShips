@@ -25,7 +25,7 @@ attr_reader :content
 
 	def status
 		return 'S' if @content.class != Water && !shot_at?
-		return ' ' if @content.class == Water && !shot_at?
+		return '~' if @content.class == Water && !shot_at?
 		return 'X' if @content.class != Water && shot_at?
 		return 'O' if @content.class == Water && shot_at?
 	end

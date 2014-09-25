@@ -32,8 +32,8 @@ let (:ship) {double :ship}
 	# 	expect(cell.hit!).to eq("splash")
 	# end
 
-	it "should be able to return the blank if there is water and it has not been hit" do
-		expect(cell.status).to eq(" ")
+	it "should be able to return ~ if there is water and it has not been hit" do
+		expect(cell.status).to eq("~")
 	end
 
 	it "should be able to return O if there is water and it has been hit" do

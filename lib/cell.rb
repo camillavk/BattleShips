@@ -1,33 +1,41 @@
-require_relative 'water'
+require 'spec_helper'
 require_relative 'ships'
 
 class Cell
 
-attr_reader :content
+attr_reader :ship_here, :shot_at
 
 	def initialize
-		@content = Water.new
+		@ship_here = false
 		@shot_at = false
 	end
 
 	def place(ship)
-		@content = ship
+		@ship_here = true
 	end
 
 	def shoot!
 		@shot_at = true
-		@content.hit!
+	end
+
+	def ship_here?
+		@ship_here
 	end
 
 	def shot_at?
 		@shot_at
 	end
 
-	def status
-		return 'S' if @content.class != Water && !shot_at?
-		return ' ' if @content.class == Water && !shot_at?
-		return 'X' if @content.class != Water && shot_at?
-		return 'O' if @content.class == Water && shot_at?
+	def attack_result
+		return "splash!" if !ship_here?
+		return "boom!" if ship_here? 
+	end
+
+	def display
+		return 'S' if ship_here == true && !shot_at?
+		return ' ' if ship_here == false && !shot_at?
+		return 'X' if ship_here == true && shot_at == true
+		return 'O' if ship_here == false && shot_at == true
 	end
 
 end

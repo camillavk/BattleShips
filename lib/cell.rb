@@ -1,5 +1,5 @@
-require 'water'
-require 'ships'
+require_relative 'water'
+require_relative 'ships'
 
 class Cell
 

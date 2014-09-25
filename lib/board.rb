@@ -11,10 +11,6 @@ attr_accessor :grid
 			@grid["#{letter}#{number}"] = Cell.new
 			end
 		end
-		# @grid.each do |cell|
-		# 	puts cell.display
-		# end
-
 	end
 
 	def access(cell)

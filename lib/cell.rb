@@ -18,7 +18,6 @@ attr_accessor :ship_content, :shot_at
 		return false if @ship_content != nil
 	end
 
-
 	def shoot!
 		@shot_at = true
 	end

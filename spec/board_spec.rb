@@ -1,6 +1,7 @@
 require 'board'
 require 'ships'
 require 'spec_helper'
+require 'cell'
 
 class Grid 
 	include Board
@@ -28,7 +29,9 @@ let (:ship) {Ship.battleship}
 		expect(board.access("A1").class).to be Cell
 	end
 
-	
+	it "should know that when a ship is not in a cell" do 
+		expect(board.access("A1").no_ship?).to be true
+	end
 
 
 

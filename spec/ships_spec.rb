@@ -21,11 +21,6 @@ describe Ship do
 
 	context "ship status" do 
 
-		it "should know when it has been placed" do 
-			ship.place!
-			expect(ship.placed).to be true
-		end
-
 		it "should be able to get hit" do 
 			ship.hit!
 			expect(ship).to be_damaged

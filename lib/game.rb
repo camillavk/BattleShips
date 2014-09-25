@@ -1,6 +1,6 @@
 class Game
 
-	attr_accessor :players, :player1, :player2
+	attr_accessor :players
 
 	def initialize
 		@players ||= [player1, player2]
@@ -8,10 +8,6 @@ class Game
 
 	def start!
 		puts "Ready to start game!"
-	end
-
-	def lose?
-		@lose == true 
 	end
 
 end

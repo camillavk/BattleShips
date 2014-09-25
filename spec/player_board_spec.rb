@@ -15,5 +15,10 @@ let (:ship) {double :ship}
 		expect(player_board.access("A5").no_ship?).to be false
 	end
 
+	it "should place a ship of size 3 into three horizontal cells" do
+	end
+
+	it "should place a ship of size 3 into three vertical cells" do
+	end
 
 end

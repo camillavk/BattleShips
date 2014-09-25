@@ -1,30 +1,19 @@
 class Ship
 
 	attr_reader :size, :name
-	attr_accessor :damaged, :floating, :hit_points, :placed
+	attr_accessor :damaged, :floating, :hit_points
 
-	def initialize(size, name, damaged, floating, hit_points, placed)
+	def initialize(size, name, damaged, floating, hit_points)
 		@size = size
 		@name = name
 		@damaged = false
 		@floating = true
 		@hit_points = hit_points
-		@placed = false
 	end
 
 	def hit!
-		raise "No battleship here!" if @floating == false
 		@hit_points -= 1
 		sink! if hit_points == 0
-		'boom'
-	end
-
-	def placed?
-		@placed
-	end
-
-	def place!
-		@placed = true
 	end
 
 	def damaged?

@@ -7,5 +7,4 @@ let (:opponent_board) {OpponentBoard.new}
 let (:ship) {double :ship}
 
 
-
 end

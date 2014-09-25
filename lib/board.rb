@@ -1,17 +1,17 @@
-require 'cell'
+require_relative 'cell'
 
 module Board
 
 attr_accessor :grid
 
-def initialize
-	@grid = {}
-	@grid = ("A".."J").to_a.each do |letter|
+	def initialize
+		@grid = {}
+			("A".."J").to_a.each do |letter|
 			(1..10).to_a.each do |number|
-			grid["#{letter}#{number}"] = Cell.new
+			@grid["#{letter}#{number}"] = Cell.new
+			end
 		end
 	end
-end
 
 def square(value)
 	value
@@ -19,11 +19,7 @@ end
 
 end
 
-# class Water
-# 	def hit!
-# 		'splash'
-# 	end
-# end
+# 
 
 
 	# def set_square(value)

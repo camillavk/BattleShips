@@ -16,6 +16,7 @@ class Ship
 		@hit_points -= 1
 		@damaged = true 
 		sink! if hit_points == 0
+		'boom'
 	end
 
 	def damaged?

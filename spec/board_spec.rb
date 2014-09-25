@@ -10,7 +10,7 @@ let (:board) {Grid.new}
 let (:ship) {double :ship}
 
 	it "is initialized as a grid" do
-		expect(board.grid).to be_kind_of(Array)
+		expect(board.grid).to be_kind_of(Hash)
 	end
 
 	it "should be able to access individual squares" do

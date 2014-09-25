@@ -15,7 +15,6 @@ class Ship
 	def hit!
 		raise "No battleship here!" if @floating == false
 		@hit_points -= 1
-		@damaged = true 
 		sink! if hit_points == 0
 		'boom'
 	end
@@ -29,7 +28,7 @@ class Ship
 	end
 
 	def damaged?
-		@damaged
+		true if size != hit_points 
 	end
 
 	def sink!

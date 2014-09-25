@@ -1,4 +1,6 @@
 require 'board'
+require 'ships'
+require 'spec_helper'
 
 class Grid 
 	include Board
@@ -7,36 +9,33 @@ end
 describe Board do 
 
 let (:board) {Grid.new}
-let (:ship) {double :ship}
+let (:ship) {Ship.battleship}
 
 	it "is initialized as a grid" do
 		expect(board.grid).to be_kind_of(Hash)
 	end
 
-	it "should be able to access individual squares" do
-		expect(board.square("A1")).to eq("A1")
+	it "should be able to find a cell" do 
+		expect(board.grid.fetch("B2").class).to be Cell
 	end
 
-	# it "should be able to access content of individual squares" do
-	# 	expect(board.content("A1")).to eq(" ")
+	# it "should know if it has a ship" do 
+	# 	board.grid.fetch("B6").ship_here!
+	# 	expect(board.grid.fetch("B6").ship_here?).to eq true
 	# end
+
+	it "should be able to access a cell" do 
+		expect(board.access("A1").class).to be Cell
+	end
+
+	
+
+
+
 
 end
 
-	# it "should change if it is occupied" do
-	# 	allow(ship).to receive(:set_square).and_return(:occupied)
-	# 	board.set_square("C1")
-	# 	expect(board.square("C1")).to eq("S")
-	# end
 
-	# it "should return miss if it is not occupied" do
-	# 	expect(board.cell("B1")).to eq("Miss")
-	# end
-
-	# it "should return hit if it is occupied" do
-	# 	board.set_square("A1")
-	# 	expect(board.cell("A1")).to eq("Hit")
-	# end
 
 
 # 		x.each do |r|

@@ -1,12 +1,15 @@
 class Player
 
-	attr_accessor :ships, :turn, :win, :aircraft_carrier, :battleship, :submarine, :destroyer, :patrol_boat, :player_board, :opponent_board
+	attr_accessor :ships, :turn, :win,
+	 :aircraft_carrier, :battleship, :submarine,
+	  :destroyer, :patrol_boat,
+	   :player_board, :opponent_board
 
-	def initialize(turn)
+	def initialize(turn, its_yo_board)
 		@ships ||= []
 		@turn = turn 
 		@win = false
-		@player_board ||= []
+		@player_board = its_yo_board
 		@opponent_board ||= []
 		add(ships)
 	end
@@ -20,15 +23,10 @@ class Player
 		self.ships = [@aircraft_carrier, @battleship, @submarine, @destroyer, @patrol_boat]
 	end
 
-
 	def ship_count
 		ships.count 
 	end
 
-	def set(ship, coordinate)
-		# player setting ships method goes here
-		ship.place!
-	end
 
 	def turn? # Player should only be able to attack on his turn
 		@turn
@@ -43,6 +41,13 @@ class Player
 	def lose?
 		!(ships.any? { |ship| ship.floating? })
 	end
+
+	def set(cell, ship)
+		player_board.grid.fetch(cell).place(ship)
+		# ship.place!
+	end
+
+
 
 
 

@@ -1,25 +1,26 @@
-require 'spec_helper'
 require_relative 'ships'
 
 class Cell
 
-attr_reader :ship_here, :shot_at
+attr_accessor :ship_content, :shot_at
 
 	def initialize
-		@ship_here = false
 		@shot_at = false
+		@ship_content = nil
 	end
 
 	def place(ship)
-		@ship_here = true
+		@ship_content = ship
 	end
+
+	def no_ship?
+		return true if @ship_content == nil
+		return false if @ship_content != nil
+	end
+
 
 	def shoot!
 		@shot_at = true
-	end
-
-	def ship_here?
-		@ship_here
 	end
 
 	def shot_at?
@@ -27,15 +28,15 @@ attr_reader :ship_here, :shot_at
 	end
 
 	def attack_result
-		return "splash!" if !ship_here?
-		return "boom!" if ship_here? 
+		return "splash!" if no_ship?
+		return "boom!" if !no_ship?
 	end
 
 	def display
-		return 'S' if ship_here == true && !shot_at?
-		return ' ' if ship_here == false && !shot_at?
-		return 'X' if ship_here == true && shot_at == true
-		return 'O' if ship_here == false && shot_at == true
+		return 'S' if no_ship? == false && !shot_at?
+		return ' ' if no_ship? == true && !shot_at?
+		return 'X' if no_ship? == false && shot_at == true
+		return 'O' if no_ship? == true && shot_at == true
 	end
 
 end

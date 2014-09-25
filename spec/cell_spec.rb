@@ -1,5 +1,5 @@
 require 'cell'
-require 'ships'
+require 'spec_helper'
 
 describe Cell do 
 
@@ -7,12 +7,12 @@ describe Cell do
 	let (:ship) { double :ship }
 
 	it "should initially contain water" do
-		expect(cell.ship_here?).to eq false
+		expect(cell.no_ship?).to eq true
 	end
 
 	it "should be able to have a ship placed on it" do
 		cell.place(ship)
-		expect(cell.ship_here?).to eq true
+		expect(cell.no_ship?).to eq false
 	end
 
 	it "should be able to be shot at" do

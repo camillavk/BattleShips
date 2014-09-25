@@ -23,11 +23,6 @@ attr_reader :content
 		@shot_at
 	end
 
-	# def hit!
-	# 	return "boom" if @content != "water"
-	# 	return "splash" if @content == "water"
-	# end
-
 	def status
 		return 'S' if @content.class != Water && !shot_at?
 		return ' ' if @content.class == Water && !shot_at?

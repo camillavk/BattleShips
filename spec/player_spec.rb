@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'player'
+require 'ships'
 
 describe Player do 
 
@@ -8,9 +9,11 @@ describe Player do
 	let(:battleship) { double :battleship }
 	let(:submarine) { double :submarine }
 	let(:destroyer) { double :destroyer }
-	let(:patrol_boat) { double :patrol_boat }
+	let(:patrol_boat) { double :patrol_boat, :floating? => true }
+	let(:sunken_ship) { double :sunken_ship, :floating? => false }
 	let(:player_board) { double :player_board, :ships => [] }
 	let(:opponent_board) { double :opponent_board, :ships => [] }
+	let(:game) { double :game }
 
 
 	context "Own board" do 
@@ -19,16 +22,9 @@ describe Player do
 			expect(player.ship_count).to eq 5
 		end
 
-		it "should be able to set boats on own board" do 
-			player.set(:aircraft_carrier)
-			allow(player_board).to receive(:ship_count).and_return 1
-			expect(player_board.ship_count).to eq 1
-		end
-
-		it "should no longer have boats that it has set down" do 
-			player.set(:aircraft_carrier)
-			expect(player.ships).to_not include :aircraft_carrier
-		end
+		# it "should be able to set boats on own board" do 
+		# 	player.set(aircraft_carrier, player_board)
+		# end
 
 	end
 
@@ -43,6 +39,29 @@ describe Player do
 		# 	player.attack(square)
 		# 	# expect(attack(square)).to return "Hit!"
 		# end
+
+	end
+
+	context "Gameplay" do 
+
+		it "should no longer be my turn after attacking" do 
+			player.attack(:square)
+			expect(player.turn).to be false
+		end
+
+		# it "should let the game know that it has taken a turn" do 
+		# 	expect(game).to receive(:add_turn)
+		# 	player.attack(:square)
+		# end
+
+
+		it "should lose when it has only a sunken ship" do 
+			player_board.ships << sunken_ship
+			puts player_board.ships
+			expect(!ships.any? { |ship| ship.floating? }).to eq true
+			# expect(self.lose?).to eq true
+			 # expect(player.lose?).to eq true
+		end
 
 	end
 

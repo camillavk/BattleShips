@@ -30,6 +30,10 @@ class Ship
 		!@floating
 	end
 
+	def floating_ships?
+		ships.any?{|ship|!ship.sunk?}
+	end
+
 	def self.patrol_boat
 		new(2, :patrol_boat, false, true, 2, false)
 	end

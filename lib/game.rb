@@ -1,13 +1,39 @@
+require_relative 'ships'
+require_relative 'player_board'
+require_relative 'opponent_board'
+
 class Game
 
-	attr_accessor :players
+	attr_accessor :player1, :player2
+	attr_writer :turn
 
-	# def initialize
-	# 	@players = [player1, player2]
-	# end
+	def initialize
+		player1 = nil
+		player2 = nil
+	end
 
-	# def start!
-	# 	puts "Ready to start game!"
-	# end
+	def add_player(player)
+		self.player1 ? self.player2 = player :self.player1 = player
+	end
+
+	def has_two_players?
+		!player2.nil?
+	end
+
+	def turn 
+		@turn ||= player1
+	end
+
+	def opponent
+		turn == player1 ? player2 : player1
+	end
+
+	def switch_turns
+		turn == player1 ? self.turn = player2 : self.turn = player1
+	end
+
+	def winner
+		turn if !opponent.board.floating_ships?
+	end
 
 end

@@ -38,7 +38,7 @@ describe Cell do
 
 
 	it "should display a blank if there is water and it has not been hit" do
-		expect(cell.display).to eq(" ")
+		expect(cell.display).to eq("~")
 	end
 
 	it "should display O if there is water and it has been hit" do

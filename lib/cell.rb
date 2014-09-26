@@ -15,7 +15,8 @@ attr_accessor :ship_content, :shot_at
 
 	def no_ship?
 		return true if @ship_content == nil
-		return false if @ship_content != nil
+	else 
+		return false
 	end
 
 	def shoot!
@@ -28,14 +29,15 @@ attr_accessor :ship_content, :shot_at
 
 	def attack_result
 		return "splash!" if no_ship?
-		return "boom!" if !no_ship?
+	else
+		return "boom!"
 	end
 
 	def display
 		return 'S' if no_ship? == false && !shot_at?
-		return ' ' if no_ship? == true && !shot_at?
-		return 'X' if no_ship? == false && shot_at == true
-		return 'O' if no_ship? == true && shot_at == true
+		return '~' if no_ship? == true && !shot_at?
+		return 'X' if no_ship? == false && shot_at 
+		return 'O' if no_ship? == true && shot_at 
 	end
 
 end

@@ -40,11 +40,6 @@ describe Ship do
 			expect(ship).to be_sunk
 		end
 
-		it "should not be able to take damage at 0 hit points" do 
-			5.times { ship.hit! }
-			expect{ ship.hit! }.to raise_error(RuntimeError)
-		end
-
 	end
 	
 end

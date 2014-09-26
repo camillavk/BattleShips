@@ -3,12 +3,13 @@ class Ship
 	attr_reader :size, :name
 	attr_accessor :damaged, :floating, :hit_points
 
-	def initialize(size, name, damaged, floating, hit_points)
+	def initialize(size, name, damaged, floating, hit_points, placed)
 		@size = size
 		@name = name
 		@damaged = false
 		@floating = true
 		@hit_points = hit_points
+		@placed = false
 	end
 
 	def hit!

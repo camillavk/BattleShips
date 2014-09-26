@@ -19,6 +19,7 @@ let (:ship) {double :ship}
 		player_board.set_a_boat_size_2("A5", "A6", ship)
 		expect(player_board.access("A5").no_ship?).to be false
 		expect(player_board.access("A6").no_ship?).to be false
+		expect(player_board.access("B5").no_ship?).to be true
 	end
 
 	it "should place a ship of size 3 into three vertical cells" do
@@ -26,7 +27,6 @@ let (:ship) {double :ship}
 		expect(player_board.access("A5").no_ship?).to be false
 		expect(player_board.access("A6").no_ship?).to be false
 		expect(player_board.access("A7").no_ship?).to be false
-		expect(player_board.access("B5").no_ship?).to be true
 	end
-	
+
 end

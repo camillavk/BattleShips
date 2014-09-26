@@ -1,7 +1,6 @@
 class Player
 
-	attr_accessor :ships, :turn, :win,
-	   :player_board, :opponent_board
+	attr_accessor :ships, :player_board, :opponent_board
 
 	def initialize
 		@ships = []
@@ -23,7 +22,6 @@ class Player
 
 	def attack(square)
 		puts "Missile under way"
-		# game.add_turn # This will need to be synced with the game's turn count method
 		@turn = false  # Flips the player's turn attribute so other player can go
 	end
 

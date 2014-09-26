@@ -17,6 +17,14 @@ attr_accessor :grid
 		@grid.fetch(cell)
 	end
 
+	def access_multiple(cell1, cell2)
+		@grid.fetch(cell1)
+		@grid.fetch(cell2)
+	end
+
+	def next(cell)
+	end
+
 	# def view_grid
 	# 	grid.each do |r|
 	# 		puts r.map { |p| p }.join("  ")

@@ -28,4 +28,8 @@ let (:ship) {Ship.battleship}
 		expect(board.access("A1").no_ship?).to be true
 	end
 
+	it "should know that two cells are empty" do 
+		expect(board.access_multiple("A1", "A2").no_ship?).to be true
+	end
+
 end

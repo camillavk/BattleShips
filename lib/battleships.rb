@@ -10,21 +10,30 @@ class BattleShips < Sinatra::Base
 
 
   get '/' do
-  	@name = session[:me]
+    @player1 = params[:player1]
+    @player2 = params[:player2]
   	erb :index
   end
 
-  get '/new_player' do
-    
-  erb :new_player
+  post '/' do
+    @player1 = params[:player1]
+    @player2 = params[:player2]
+    erb :index
   end
 
+  get '/new_player' do
+    @player1 = params[:player1]
+    @player2 = params[:player2]
+    erb :new_player
+  end
 
   post '/new_player' do
-  	player = Player.new
-  	player = params[:player_name]
-  	session[:me] = params[:player_name]
-  	GAME.add_player player
+  	@player1 = params[:player1]
+    @player2 = params[:player2]
+  	session[:me] = params[:player1]
+  	GAME.add_player(@player1)
+    GAME.add_player(@player2)
+    redirect '/'
   end
 
 

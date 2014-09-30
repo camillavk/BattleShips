@@ -14,9 +14,11 @@ class BattleShips < Sinatra::Base
   	erb :index
   end
 
-  get '/newgame' do
-  	erb :newgame
+  get '/new_player' do
+    
+  erb :new_player
   end
+
 
   post '/new_player' do
   	player = Player.new

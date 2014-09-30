@@ -22,9 +22,9 @@ class BattleShips < Sinatra::Base
 
   post '/new_player' do
   	player = Player.new
-  	player.name = params[:player_name]
+  	player = params[:player_name]
   	session[:me] = params[:player_name]
-  	Game.add_player player
+  	GAME.add_player player
   end
 
 

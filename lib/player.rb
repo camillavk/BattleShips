@@ -8,11 +8,11 @@ class Player
 	end
 
 	def add(ships)
-		@aircraft_carrier = Ship.aircraft_carrier
-		@battleship = Ship.battleship
-		@submarine = Ship.submarine
-		@destroyer = Ship.destroyer
-		@patrol_boat = Ship.patrol_boat
+		@aircraft_carrier = AircraftCarrier.new
+		@battleship = Battleship.new
+		@submarine = Submarine.new
+		@destroyer = Destroyer.new
+		@patrol_boat = PatrolBoat.new
 		self.ships = [@aircraft_carrier, @battleship, @submarine, @destroyer, @patrol_boat]
 	end
 

@@ -1,0 +1,25 @@
+body {
+  font-size: large;
+}
+
+h1 {
+
+
+}
+
+div {
+
+
+}
+
+#banner {
+  border-width: 0px;
+  padding: 0px;
+ } 
+
+.serious {
+  font-color: red;
+  font-family: Impact;
+  font-size: large;
+  font-weight: bold;
+}

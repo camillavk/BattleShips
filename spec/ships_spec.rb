@@ -1,19 +1,18 @@
-require 'spec_helper'
 require 'ships'
 
 describe Ship do 
 
-	let(:ship) { Ship.new(:size, :name, :damaged, :floating, 5, :placed) }
+	let(:ship) { AircraftCarrier.new }
 
 	context "ship sizes" do 
 
 		it "patrol boat should have size 2" do 
-			patrol_boat = Ship.patrol_boat
+			patrol_boat = PatrolBoat.new
 			expect(patrol_boat.size).to be 2
 		end
 
 		it "aircraft carrier should have size 5" do
-			aircraft_carrier = Ship.aircraft_carrier
+			aircraft_carrier = AircraftCarrier.new
 			expect(aircraft_carrier.size).to be 5
 		end
 

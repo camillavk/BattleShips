@@ -10,31 +10,36 @@ class BattleShips < Sinatra::Base
 
 
   get '/' do
-    @player1 = params[:player1]
-    @player2 = params[:player2]
+    # @player1 = params[:player1]
+    # @player2 = params[:player2]
   	erb :index
   end
 
   post '/' do
     @player1 = params[:player1]
+    session[:me] = params[:player1]
     @player2 = params[:player2]
+    session[:opponent] = params[:player2]
     erb :index
   end
 
   get '/new_player' do
-    @player1 = params[:player1]
-    @player2 = params[:player2]
     erb :new_player
   end
 
   post '/new_player' do
-  	@player1 = params[:player1]
+  	@player1 = Player.new
+    session[:me] = params[:player1]
     @player2 = params[:player2]
   	session[:me] = params[:player1]
   	GAME.add_player(@player1)
     GAME.add_player(@player2)
-    redirect '/'
+    erb :index
   end
+
+  get '/new_game' do
+    
+  end 
 
 
   # start the server if ruby file executed directly

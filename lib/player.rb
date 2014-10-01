@@ -1,8 +1,9 @@
 class Player
 
-	attr_accessor :ships, :player_board, :opponent_board
+	attr_accessor :ships, :player_board, :opponent_board, :name
 
-	def initialize
+	def initialize(name = nil)
+		@name = name
 		@ships = []
 		add(ships)
 	end

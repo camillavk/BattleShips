@@ -7,13 +7,14 @@
 
   <% if @player1 && @player2 %>
 
-  <h2>Player 1: <%= @player1 %>
-    <br>Player 2: <%= @player2 %> </h2>
+    <h2>Player 1: <%= @player1.name %>
+    <br>Player 2: <%= @player2.name %> </h2>
     <p><a href='/new_game'>Ready to play</a></p>
 
-    <% else %>
-<h2>No players have yet been initialized!</h2>
-<p><a href='/new_player'>New Player</a></p>
+  <% else %>
+
+    <h2>No players have yet been initialized!</h2>
+    <p><a href='/new_player'>New Player</a></p>
 
 <% end %>
 

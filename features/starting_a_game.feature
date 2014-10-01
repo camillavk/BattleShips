@@ -8,14 +8,11 @@ Feature: Starting the game
 		When I follow "New Player"
 		Then I should see "What's your name?"
 
-	Scenario: Initializing Player 1
+	Scenario: Initializing Player 1 and Player 2
 		Given I Am On the New Player Page
-		When I Enter My Name into The Form
-		Then I Should See "Hello Tim"
+		When I Enter two Names into The Form
+		And I return to the home page
+		Then I Should see "Ready to Play"
 
-	Scenario: Initializing Player 2
-		Given I am on the New Player Page
-		When I enter my name into the form
-		Then I should see "Hello Hadi" 
 
 		

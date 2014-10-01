@@ -6,13 +6,15 @@ Feature: Starting the game
 	Scenario: Start the game
 		Given I am on the homepage
 		When I follow "New Player"
-		Then I should see "What's your name?"
+		Then I should see "What's your name, Player 1?"
 
 	Scenario: Initializing Player 1 and Player 2
-		Given I Am On the New Player Page
-		When I Enter two Names into The Form
+		Given I am on the new player page
+		When I enter two names into the form
 		And I return to the home page
-		Then I Should see "Ready to Play"
+		Then I should view "Ready to play"
 
-
-		
+	Scenario: Create the Boards
+		Given both players are initialized
+		When I click "Ready to Play"
+		Then I should see two new boards on the game page

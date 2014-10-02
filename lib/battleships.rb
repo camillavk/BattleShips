@@ -44,18 +44,35 @@ class BattleShips < Sinatra::Base
     redirect '/game'
   end
 
-  get '/place' do 
+  get '/place_submarine' do 
     @player1 = session[:player1]
     erb :place 
   end
 
-  post '/place' do
+  post '/place_submarine' do
     @player1 = session[:player1]
     @cell1 = params[:cell1]
     @cell2 = params[:cell2]
     @cell3 = params[:cell3]
     @submarine = @player1.ships[2]
     @player1.player_board.set_a_boat_size_3(@cell1, @cell2, @cell3, @submarine)
+    redirect '/game'
+  end
+
+  get '/place_aircraft_carrier' do
+    @player1 = session[:player1]
+    erb :place 
+  end
+
+  post '/place_aircraft_carrier' do
+    @player1 = session[:player1]
+    @cell1 = params[:cell1]
+    @cell2 = params[:cell2]
+    @cell3 = params[:cell3]
+    @cell4 = params[:cell4]
+    @cell5 = params[:cell5]
+    @aircraft_carrier = @player1.ships[0]
+    @player1.player_board.set_a_boat_size_5(@cell1, @cell2, @cell3, @cell4, @cell5, @aircraft_carrier)
     redirect '/game'
   end
 

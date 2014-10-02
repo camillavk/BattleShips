@@ -23,10 +23,10 @@
 <p>Here are your ships:</p>
 <% @player1.ships.each do |ship| %>
 <ul>
-  <li><%= ship.name %></li>
+  <li><%= ship.name %><a href='/place_<%= ship.name %>'>Place me!</a></li>
 </ul>
 <% end %>
 
-<p><a href='/place'>Let's place these ships!</a></p>
+<p></p>
 
 <% end %>

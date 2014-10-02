@@ -5,10 +5,9 @@
 
   <h1>Welcome to Battleships</h1>
 
-  <% if @player1 && @player2 %>
+  <% if @player1 %>
 
-    <h2>Player 1: <%= @player1.name %>
-    <br>Player 2: <%= @player2.name %> </h2>
+    <h2>Player 1: <%= @player1.name %></h2>
     <p><a href='/game'>Ready to play</a></p>
 
   <% else %>

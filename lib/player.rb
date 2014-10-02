@@ -5,10 +5,9 @@ class Player
 	def initialize(name = nil)
 		@name = name
 		@ships = []
-		add(ships)
 	end
 
-	def add(ships)
+	def add_ships
 		@aircraft_carrier = AircraftCarrier.new
 		@battleship = Battleship.new
 		@submarine = Submarine.new

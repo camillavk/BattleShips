@@ -12,3 +12,21 @@
 </tr>
 <% end %>
 </table>
+
+<% if @player1.ships == [] %>
+<p></p>
+<form action='/add_ships' method='post'>
+  <input type='submit' value='Gimme some ships!'>
+</form>
+
+<% else %> 
+<p>Here are your ships:</p>
+<% @player1.ships.each do |ship| %>
+<ul>
+  <li><%= ship.name %></li>
+</ul>
+<% end %>
+
+<p><a href='/place'>Let's place these ships!</a></p>
+
+<% end %>

@@ -22,4 +22,7 @@ attr_accessor :grid
 		@grid.fetch(cell2)
 	end
 
+	
+
+
 end

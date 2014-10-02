@@ -1,20 +1,14 @@
-<h2>Place your submarine! Use capital letters! I.e. A4, A5, A6, etc...</h2>
+<h2>Place your ship! </h2>
 
-<%= 
-<p>Enter five consecutive cells!</p>
-<form action='/place' method='POST'>
+<p>Enter consecutive cells! Use capital letters! I.e. A4, A5, A6, etc...</p>
+
+<p>If your ship is less than 5 cells long, don't use 5 cells or else you will break everything!</p>
+
+<form action='/place_aircraft_carrier' method='POST'>
   <input type='text' name='cell1'>
   <input type='text' name='cell2'>
   <input type='text' name='cell3'>
   <input type='text' name='cell4'>
   <input type='text' name='cell5'>
-  <input type='submit' value='Place my ship!'>
-</form>
-
-<p>Enter three consecutive cells!</p>
-<form action='/place' method='POST'>
-  <input type='text' name='cell1'>
-  <input type='text' name='cell2'>
-  <input type='text' name='cell3'>
   <input type='submit' value='Place my ship!'>
 </form>

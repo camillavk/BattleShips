@@ -18,7 +18,6 @@ class BattleShips < Sinatra::Base
   end
 
   post '/' do
-    
     session[:player1] = Player.new
     @player1 = session[:player1]
     @player1.name = params[:player1name]
@@ -44,37 +43,90 @@ class BattleShips < Sinatra::Base
     redirect '/game'
   end
 
-  get '/place_submarine' do 
-    @player1 = session[:player1]
-    erb :place 
-  end
-
-  post '/place_submarine' do
-    @player1 = session[:player1]
-    @cell1 = params[:cell1]
-    @cell2 = params[:cell2]
-    @cell3 = params[:cell3]
-    @submarine = @player1.ships[2]
-    @player1.player_board.set_a_boat_size_3(@cell1, @cell2, @cell3, @submarine)
-    redirect '/game'
-  end
-
   get '/place_aircraft_carrier' do
     @player1 = session[:player1]
+    @ship = @player1.ships[0]
+    @size = 5
     erb :place 
   end
 
   post '/place_aircraft_carrier' do
+    @size = 5
     @player1 = session[:player1]
     @cell1 = params[:cell1]
     @cell2 = params[:cell2]
     @cell3 = params[:cell3]
     @cell4 = params[:cell4]
     @cell5 = params[:cell5]
-    @aircraft_carrier = @player1.ships[0]
-    @player1.player_board.set_a_boat_size_5(@cell1, @cell2, @cell3, @cell4, @cell5, @aircraft_carrier)
+    @ship = @player1.ships[0]
+    @player1.player_board.set_a_boat_size_5(@cell1, @cell2, @cell3, @cell4, @cell5, @ship)
     redirect '/game'
   end
+
+  get '/place_battleship' do
+    @player1 = session[:player1]
+    @size = 4
+    erb :place 
+  end
+
+  post '/place_battleship' do 
+    @player1 = session[:player1]
+    @cell1 = params[:cell1]
+    @cell2 = params[:cell2]
+    @cell3 = params[:cell3]
+    @cell4 = params[:cell4]
+    @ship = @player1.ships[1]
+    @player1.player_board.set_a_boat_size_4(@cell1, @cell2, @cell3, @cell4, @ship)
+    redirect '/game'
+  end 
+
+  get '/place_submarine' do
+    @player1 = session[:player1]
+    @size = 3
+    erb :place 
+  end
+
+  post '/place_submarine' do 
+    @player1 = session[:player1]
+    @cell1 = params[:cell1]
+    @cell2 = params[:cell2]
+    @cell3 = params[:cell3]
+    @ship = @player1.ships[2]
+    @player1.player_board.set_a_boat_size_3(@cell1, @cell2, @cell3, @ship)
+    redirect '/game'
+  end 
+
+  get '/place_destroyer' do
+    @player1 = session[:player1]
+    @size = 3
+    erb :place 
+  end
+
+  post '/place_destroyer' do 
+    @player1 = session[:player1]
+    @cell1 = params[:cell1]
+    @cell2 = params[:cell2]
+    @cell3 = params[:cell3]
+    @ship = @player1.ships[3]
+    @player1.player_board.set_a_boat_size_3(@cell1, @cell2, @cell3, @ship)
+    redirect '/game'
+  end 
+
+  get '/place_patrol_boat' do
+    @player1 = session[:player1]
+    @size = 2
+    erb :place 
+  end
+
+  post '/place_patrol_boat' do 
+    @player1 = session[:player1]
+    @cell1 = params[:cell1]
+    @cell2 = params[:cell2]
+    @ship = @player1.ships[2]
+    @player1.player_board.set_a_boat_size_2(@cell1, @cell2, @ship)
+    redirect '/game'
+  end 
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0

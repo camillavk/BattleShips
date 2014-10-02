@@ -33,7 +33,7 @@ attr_accessor :ship_content, :shot_at
 		return "boom!"
 	end
 
-	def display
+	def content
 		return 'S' if no_ship? == false && !shot_at?
 		return '~' if no_ship? == true && !shot_at?
 		return 'X' if no_ship? == false && shot_at 

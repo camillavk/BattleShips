@@ -1,0 +1,14 @@
+<table border="2">
+<thead>BattleShips</thead>
+<% (1..10).to_a.unshift(' ').each do |column| %>
+		<th><% column %></th>
+	<% end %>
+<% @cells.each_with_index do |row, index| %>
+<tr>
+<th><%= (index + 65).chr %></th>
+<% row.each do |cell| %>
+<td><%= cell %></td>
+<% end %>
+</tr>
+<% end %>
+</table>

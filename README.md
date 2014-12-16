@@ -1,9 +1,11 @@
 # Battleships in the Browser
 
+```
 Feature: Starting the game
   In order to play battleships
   As a nostalgic player
   I want to start a new game
+```
 
 ### Instructions
 

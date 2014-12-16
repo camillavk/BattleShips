@@ -23,7 +23,7 @@ To test, run 'spec' and 'cucumber' from the command line.
 
 ### Task
 
-In Week 2, we built back-end logic for Battleships using OOD in Ruby. In Week 3, our task was to build a playable frontend in Sinatra.
+In Week 2, [Tim](https://github.com/scully87), [Hadi](https://github.com/Schlap), [Camilla](https://github.com/camillavk), and [Denise](https://github.com/deniseyu) built back-end logic for Battleships using OOD in Ruby. In Week 3, our task was to build a playable frontend in Sinatra.
 
 ### Technologies
 

@@ -7,7 +7,21 @@ Feature: Starting the game
   I want to start a new game
 ```
 
-### Instructions
+## To Run
+
+Clone the repository:
+```
+git clone git@github.com:camillavk/BattleShips.git
+cd BattleShips
+```
+Install dependencies and start the server:
+```
+bundle install
+rackup
+```
+To test, run 'spec' and 'cucumber' from the command line.
+
+### Task
 
 In Week 2, we built back-end logic for Battleships using OOD in Ruby. In Week 3, our task was to build a playable frontend in Sinatra.
 
@@ -33,6 +47,7 @@ In Week 2, we built back-end logic for Battleships using OOD in Ruby. In Week 3,
 * Encapsulation
 * Design Patterns
 * SOLID Principles
+* User experience design
 
 ### User Story Overview
 
@@ -51,4 +66,5 @@ Tasks remaining:
 * Automate ship placement for size of ship
 * Implement sessions for two players
 * Shoot at square on opponent's board
+* Extend test suite
 * Finish porting game logic to front end
